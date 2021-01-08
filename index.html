@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   </head>
   <body>
     <h1>LIFFテストページ</h1>
     <p>LIFFの作成を色々と試すためのページです。</p>
+    <h2 id="profile_name"></h2>
+    <img id="profile_img" class="profile" src=""/>
   </body>
-</html>
-
-<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-
+  
 <script>
-    const liffId = "1651814367-PnWzJYDd"
-    const Name = document.getElementById('profile_name');
-    const Img = document.getElementById("profile_img");
- 
-    liff.init({liffId}).then(() => {
-      if (liff.isLoggedIn()) {
-      }
-      else{
-        liff.login();
-      }
-    })
- 
- 
-  </script>
+  const liffId = "1651814367-PnWzJYDd"
+  const Name = document.getElementById('profile_name');
+  const Img = document.getElementById("profile_img");
+
+  liff.init({liffId}).then(() => {
+    if (liff.isLoggedIn()) {
+      liff.getProfile()
+        .then(profile => {
+          const name = profile.displayName;
+          const pic = profile.pictureUrl;
+          Name.innerHTML = name;
+          Img.src = pic;
+        })
+        .catch((err) => {
+          console.log('error', err);
+        });
+    }
+    else{
+      liff.login();
+    }
+  })
+</script>
+</html>
