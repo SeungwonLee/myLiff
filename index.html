@@ -7,3 +7,21 @@
     <p>LIFFの作成を色々と試すためのページです。</p>
   </body>
 </html>
+
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+<script>
+    const liffId = "1651814367-PnWzJYDd"
+    const Name = document.getElementById('profile_name');
+    const Img = document.getElementById("profile_img");
+ 
+    liff.init({liffId}).then(() => {
+      if (liff.isLoggedIn()) {
+      }
+      else{
+        liff.login();
+      }
+    })
+ 
+ 
+  </script>
