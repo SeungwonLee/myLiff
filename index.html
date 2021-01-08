@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
   </head>
   <body>
     <h1>LIFFテストページ</h1>
@@ -21,7 +21,7 @@
         .then(profile => {
           const name = profile.displayName;
           const pic = profile.pictureUrl;
-          Name.innerHTML = name;
+          Name.innerHTML = profile;
           Img.src = pic;
         })
         .catch((err) => {
