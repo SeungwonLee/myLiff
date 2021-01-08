@@ -21,8 +21,8 @@
         .then(profile => {
           const name = profile.displayName;
           const pic = profile.pictureUrl;
-          Name.innerHTML = profile;
-          Img.src = pic;
+          Name.innerHTML = "test";
+          Img.src = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg";
         })
         .catch((err) => {
           console.log('error', err);
